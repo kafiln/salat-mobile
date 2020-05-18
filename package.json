@@ -5,7 +5,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "dev": "yarn android && yarn ios"
   },
   "dependencies": {
     "expo": "~37.0.3",
