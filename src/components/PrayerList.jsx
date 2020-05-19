@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import PrayerItem from "./ PrayerItem";
 
 const PrayerList = () => {
@@ -19,8 +19,7 @@ export default PrayerList;
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: "#e3e3e3",
-    width: "80%",
+    width: "75%",
     paddingVertical: 20,
   },
 });

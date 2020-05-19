@@ -1,35 +1,40 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
 import {
   Feather,
-  Fontisto,
-  MaterialCommunityIcons,
   FontAwesome,
+  MaterialCommunityIcons,
 } from "@expo/vector-icons";
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 
-//TODO: Refactor this
+//TODO: Refactor this, is there a better way ?
 const getIcon = (name) => {
   switch (name) {
-    case "Fajr":
-      return <Feather name="sunrise" size={24} />;
     case "Chorouq":
+      return <Feather name="sunrise" style={styles.icon} size={24} />;
+    case "Fajr":
       return (
         <MaterialCommunityIcons
           name="weather-sunset-up"
+          style={styles.icon}
           size={24}
-          color="black"
         />
       );
     case "Dhuhr":
-      return <Feather name="sun" size={24} />;
+      return <Feather name="sun" style={styles.icon} size={24} />;
     case "Asr":
-      return <FontAwesome name="sun-o" size={24} />;
+      return <FontAwesome name="sun-o" style={styles.icon} size={24} />;
     case "Maghrib":
-      return <Feather name="sunset" size={24} />;
+      return <Feather name="sunset" style={styles.icon} size={24} />;
     case "Ishae":
-      return <MaterialCommunityIcons name="weather-night" size={24} />;
+      return (
+        <MaterialCommunityIcons
+          name="weather-night"
+          style={styles.icon}
+          size={24}
+        />
+      );
     default:
-      return <Feather name="sunrise" size={24} />;
+      return <Feather name="sunrise" style={styles.icon} size={24} />;
   }
 };
 
@@ -63,13 +68,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-
-    // flex: 1,
   },
   time: {
-    // flex: 3,
-    alignItems: "flex-end",
     fontSize: 18,
+    color: "#212B46",
+  },
+  icon: {
     color: "#212B46",
   },
 });
