@@ -7,42 +7,71 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 //TODO: Refactor this, is there a better way ?
-const getIcon = (name) => {
+export const getIcon = (name, styles) => {
   switch (name) {
-    case "Chorouq":
-      return <Feather name="sunrise" style={styles.icon} size={24} />;
-    case "Fajr":
+    case "chorouq":
+      return <Feather name="sunrise" style={styles} size={24} />;
+    case "fajr":
       return (
         <MaterialCommunityIcons
           name="weather-sunset-up"
-          style={styles.icon}
+          style={styles}
           size={24}
         />
       );
-    case "Dhuhr":
-      return <Feather name="sun" style={styles.icon} size={24} />;
-    case "Asr":
-      return <FontAwesome name="sun-o" style={styles.icon} size={24} />;
-    case "Maghrib":
-      return <Feather name="sunset" style={styles.icon} size={24} />;
-    case "Ishae":
+    case "dhuhr":
+      return <Feather name="sun" style={styles} size={24} />;
+    case "asr":
+      return <FontAwesome name="sun-o" style={styles} size={24} />;
+    case "maghrib":
+      return <Feather name="sunset" style={styles} size={24} />;
+    case "ishae":
       return (
-        <MaterialCommunityIcons
-          name="weather-night"
-          style={styles.icon}
-          size={24}
-        />
+        <MaterialCommunityIcons name="weather-night" style={styles} size={24} />
       );
     default:
-      return <Feather name="sunrise" style={styles.icon} size={24} />;
+      return <Feather name="sunrise" style={styles} size={24} />;
   }
 };
 
-const PrayerItem = ({ name, time }) => {
+const PrayerItem = ({ name, time, next }) => {
+  const styles = StyleSheet.create({
+    container: {
+      width: "100%",
+      flexDirection: "row",
+      justifyContent: "space-between",
+      padding: 10,
+    },
+    next: {
+      backgroundColor: "#fff",
+      borderRadius: 15,
+    },
+    name: {
+      fontSize: 18,
+      fontWeight: next ? "bold" : "normal",
+      color: "#212B46",
+      textTransform: "capitalize",
+    },
+    nameContainer: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
+    },
+    time: {
+      fontSize: 18,
+      fontWeight: next ? "bold" : "normal",
+      color: "#212B46",
+    },
+    icon: {
+      marginHorizontal: 10,
+      color: "#212B46",
+      fontWeight: next ? "bold" : "normal",
+    },
+  });
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, next && styles.next]}>
       <View style={styles.nameContainer}>
-        {getIcon(name)}
+        {getIcon(name, styles.icon)}
         <Text style={styles.name}>{name}</Text>
       </View>
       <Text style={styles.time}>{time}</Text>
@@ -51,29 +80,3 @@ const PrayerItem = ({ name, time }) => {
 };
 
 export default PrayerItem;
-
-const styles = StyleSheet.create({
-  container: {
-    width: "100%",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingVertical: 10,
-  },
-  name: {
-    marginLeft: 10,
-    fontSize: 18,
-    color: "#212B46",
-  },
-  nameContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  time: {
-    fontSize: 18,
-    color: "#212B46",
-  },
-  icon: {
-    color: "#212B46",
-  },
-});

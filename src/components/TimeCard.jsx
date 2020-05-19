@@ -1,6 +1,8 @@
-import { Fontisto } from "@expo/vector-icons";
+import moment from "moment";
 import React from "react";
 import { ImageBackground, StyleSheet, Text, View } from "react-native";
+import { DEFAULT_TIME_FORMAT } from "../settings";
+import { getIcon } from "./ PrayerItem";
 
 const TimeCard = ({ name, remaining, time }) => {
   const bgImage = require("../../assets/background.png");
@@ -9,11 +11,11 @@ const TimeCard = ({ name, remaining, time }) => {
     <ImageBackground style={styles.backgroundImage} source={bgImage}>
       <View style={styles.timeCard}>
         <View style={styles.name}>
-          <Fontisto name="horizon-alt" size={24} color={"#fff"} />
+          {getIcon(name, styles.icon)}
           <Text style={styles.textSecondary}>{name}</Text>
         </View>
-        <Text style={styles.textPrimary}>{remaining}</Text>
-        <Text style={styles.textSecondary}>{time}</Text>
+        <Text style={styles.textPrimary}>-{remaining}</Text>
+        <Text style={styles.textSecondary}>{moment(time).format("HH:mm")}</Text>
       </View>
     </ImageBackground>
   );
@@ -28,11 +30,16 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingHorizontal: 20,
   },
+  icon: {
+    color: "#fff",
+  },
   timeCard: {
     backgroundColor: "rgba(43.9, 51.8, 67.8, 0.8)",
-    padding: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 40,
     borderRadius: 10,
     justifyContent: "space-between",
+    width: "90%",
   },
   name: {
     flexDirection: "row",
@@ -42,14 +49,16 @@ const styles = StyleSheet.create({
   textPrimary: {
     color: "#FBF2DF",
     textAlign: "center",
-    fontSize: 64,
+    fontSize: 48,
+    paddingHorizontal: 10,
+    paddingVertical: 15,
     fontWeight: "bold",
-    padding: 10,
   },
   textSecondary: {
     color: "#fff",
     textAlign: "center",
     fontSize: 24,
     paddingHorizontal: 5,
+    textTransform: "capitalize",
   },
 });

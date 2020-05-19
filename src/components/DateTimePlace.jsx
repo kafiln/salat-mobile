@@ -1,15 +1,20 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
+import { ApplicationContext } from "../context";
+import { DEFAULT_DATE_FORMAT } from "../settings";
+import CITIES from "../data/cities.json";
 
-const DateTimePlace = ({ date, place }) => {
+const DateTimePlace = () => {
+  const { id, time } = ApplicationContext();
+  const place = CITIES.find((e) => e.id === id).names["fr-fr"];
   return (
     <View style={styles.container}>
       <View style={styles.placeContainer}>
         <FontAwesome name="map-marker" size={24} />
         <Text style={styles.place}>{place}</Text>
       </View>
-      <Text style={styles.time}>{date}</Text>
+      <Text style={styles.time}>{time.format(DEFAULT_DATE_FORMAT)}</Text>
     </View>
   );
 };

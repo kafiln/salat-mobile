@@ -1,18 +1,19 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import PrayerItem from "./ PrayerItem";
+import moment from "moment";
 
-const PrayerList = () => {
-  return (
-    <View style={styles.container}>
-      <PrayerItem name="Fajr" time="04:03"></PrayerItem>
-      <PrayerItem name="Chorouq" time="05:59"></PrayerItem>
-      <PrayerItem name="Dhuhr" time="12:56"></PrayerItem>
-      <PrayerItem name="Asr" time="16:17"></PrayerItem>
-      <PrayerItem name="Maghrib" time="19:17"></PrayerItem>
-      <PrayerItem name="Ishae" time="20:48"></PrayerItem>
-    </View>
-  );
+const PrayerList = ({ data, next }) => {
+  const { id, day, ...prayers } = data;
+  const list = Object.keys(prayers).map((key) => (
+    <PrayerItem
+      key={key}
+      name={key}
+      next={next === key}
+      time={moment.utc(prayers[key]).format("HH:mm")}
+    />
+  ));
+  return <View style={styles.container}>{list}</View>;
 };
 
 export default PrayerList;
