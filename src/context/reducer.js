@@ -6,8 +6,8 @@ import {
   CHANGE_PERIOD,
   CHANGE_THEME,
   REFRESH_TIME,
-  INIT,
 } from "./types";
+import { AsyncStorage } from "react-native";
 
 const withTime = (state) => {
   const time = moment.utc().utcOffset(TIME_OFFSET);
@@ -20,7 +20,7 @@ const withTime = (state) => {
 const reducer = async (state, action) => {
   switch (action.type) {
     case CHANGE_CITY:
-      await AsyncStorage.setItem("id", action.payload);
+      await AsyncStorage.setItem("id", "" + action.payload);
       return {
         ...withTime(state),
         id: action.payload,
@@ -47,7 +47,6 @@ const reducer = async (state, action) => {
         theme,
       };
     case REFRESH_TIME:
-      // console.log('refreshing time');
       return {
         ...withTime(state),
       };

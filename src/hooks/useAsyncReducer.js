@@ -25,7 +25,7 @@ const useAsyncReducer = (reducer, initialState = null) => {
   }, []);
 
   const dispatch = async (action) => {
-    const result = reducer(state, action);
+    const result = await reducer(state, action);
     if (typeof result.then === "function") {
       try {
         const newState = await result;

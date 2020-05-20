@@ -1120,6 +1120,11 @@
     wcwidth "^1.0.1"
     ws "^1.1.0"
 
+"@react-native-community/picker@1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@react-native-community/picker/-/picker-1.5.0.tgz#b973f85e6dadfcc2cf0468dfa0f56d2ec72a3a49"
+  integrity sha512-YLpDiipoB0B1Ug48EA5yB6eh0K1Z6mGBn6mlsFwEOdEwyB2Vd57miy5ktE9REH+ja6dZAbfD/er+WUOG+rfyGw==
+
 "@types/color-name@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@types/color-name/-/color-name-1.1.1.tgz#1c1261bbeaa10a8055bbc5d8ab84b7b2afc846a0"

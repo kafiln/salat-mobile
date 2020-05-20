@@ -9,6 +9,7 @@
     "dev": "yarn android && yarn ios"
   },
   "dependencies": {
+    "@react-native-community/picker": "1.5.0",
     "axios": "^0.19.2",
     "expo": "~37.0.3",
     "moment": "^2.25.3",

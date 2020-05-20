@@ -33,10 +33,7 @@ const MainScreen = () => {
   }, [time, prayer]);
 
   useEffect(() => {
-    const timeout = setTimeout(
-      () => dispatch({ type: REFRESH_TIME, payload: null }),
-      1000
-    );
+    const timeout = setTimeout(() => dispatch({ type: REFRESH_TIME }), 1000);
     return () => {
       clearTimeout(timeout);
     };

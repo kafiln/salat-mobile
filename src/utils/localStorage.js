@@ -14,7 +14,7 @@ import { AsyncStorage } from "react-native";
  *  if not found in the asyncStorage 
  * @returns the data 
  */
-export const getFromLocalStorageOrApi = async (name: string, url: string) => {
+export const getFromLocalStorageOrApi = async (name, url) => {
   if (!(await AsyncStorage.getItem(name))) {
     const value = (await axios.get(url)).data;
     await AsyncStorage.setItem(name, JSON.stringify(value));
@@ -35,7 +35,7 @@ export const getFromLocalStorageOrApi = async (name: string, url: string) => {
  * Create a key to use with the localStorage
  * @param {number} cityId the id of the city
  */
-export const cleanLocalStorage = async (cityId: number) => {
+export const cleanLocalStorage = async (cityId) => {
   const rest = [...NEVER_REMOVE_FROM_STORAGE];
   const dailyKey = getStorageKey(cityId, true).split("_").slice(0, 3).join("_");
   const monthlyKey = getStorageKey(cityId, false)
@@ -50,7 +50,7 @@ export const cleanLocalStorage = async (cityId: number) => {
     .forEach(async (e) => await AsyncStorage.removeItem(e));
 };
 
-export const getStorageKey = (cityId: number, isDaily: boolean): string => {
+export const getStorageKey = (cityId, isDaily) => {
   const date = new Date();
   const month = date.getMonth() + 1;
   const day = date.getDate();

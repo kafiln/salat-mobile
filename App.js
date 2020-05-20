@@ -4,6 +4,7 @@ import { AppContext, initialState } from "./src/context";
 import reducer from "./src/context/reducer";
 import useAsyncReducer from "./src/hooks/useAsyncReducer";
 import MainScreen from "./src/screens/MainScreen";
+import SettingsScreen from "./src/screens/SettingsScreen";
 
 const App = () => {
   const [state, dispatch] = useAsyncReducer(reducer, initialState);
