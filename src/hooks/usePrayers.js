@@ -17,7 +17,7 @@ export default (cityId, isDayly = false) => {
       setPrayers(null);
 
       // Form the key string
-      const key = getStorageKey(80, isDayly);
+      const key = getStorageKey(cityId, isDayly);
 
       // Form the URL
       let URL = `${API_URL}prayer?lang=fr-fr&cityId=${cityId}&month=${

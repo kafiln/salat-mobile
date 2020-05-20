@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
-import { SafeAreaView, StyleSheet, View } from "react-native";
+import { SafeAreaView, StyleSheet, View, Text, Button } from "react-native";
 import DateTimePlace from "../components/DateTimePlace";
 import PrayerList from "../components/PrayerList";
 import TimeCard from "../components/TimeCard";
@@ -10,7 +10,7 @@ import { ApplicationContext } from "../context";
 import { REFRESH_TIME } from "../context/types";
 import NAMES from "../data/prayers.json";
 import { DEFAULT_TIME_FORMAT } from "../settings";
-const MainScreen = () => {
+const MainScreen = ({ navigation }) => {
   const { id, dispatch, time } = ApplicationContext();
   let [diff, setDifference] = useState("");
   let [next, setNextOne] = useState("");
@@ -49,6 +49,10 @@ const MainScreen = () => {
           <DateTimePlace />
           {prayer && <PrayerList data={prayer} next={next} />}
         </View>
+        <Button
+          title="Settings"
+          onPress={() => navigation.navigate("Settings")}
+        ></Button>
       </SafeAreaView>
     )
   );

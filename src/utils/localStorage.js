@@ -43,7 +43,7 @@ export const cleanLocalStorage = async (cityId) => {
     .slice(0, 2)
     .join("_");
 
-  Object.keys({ ...(await AsyncStorage.getAllKeys()) })
+  (await AsyncStorage.getAllKeys())
     .filter((e) => !e.startsWith(dailyKey))
     .filter((e) => !e.startsWith(monthlyKey))
     .filter((e) => !rest.includes(e))

@@ -5,6 +5,12 @@ import { ApplicationContext } from "../context";
 import { CHANGE_LANGUAGE, CHANGE_THEME, CHANGE_CITY } from "../context/types";
 import CITIES from "../data/cities.json";
 
+const byLabel = (a, b) => (a.label > b.label ? 1 : b.label > a.label ? -1 : 0);
+
+const cities = CITIES.map((c) => ({ id: c.id, label: c.names["fr-fr"] })).sort(
+  byLabel
+);
+
 const SettingsScreen = () => {
   const { id, lang, theme, dispatch } = ApplicationContext();
   const toggleLanguage = async () => {
@@ -43,12 +49,8 @@ const SettingsScreen = () => {
             await dispatch({ type: CHANGE_CITY, payload: parseInt(_) });
           }}
         >
-          {CITIES.map((city) => (
-            <Picker.Item
-              key={city.id}
-              label={city.names["fr-fr"]}
-              value={city.id}
-            />
+          {cities.map((city) => (
+            <Picker.Item key={city.id} label={city.label} value={city.id} />
           ))}
         </Picker>
       </View>
