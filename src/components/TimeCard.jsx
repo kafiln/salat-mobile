@@ -4,11 +4,12 @@ import { ImageBackground, StyleSheet, Text, View } from "react-native";
 import { DEFAULT_TIME_FORMAT } from "../settings";
 import { getIcon } from "./ PrayerItem";
 
-const TimeCard = ({ name, remaining, time }) => {
+const TimeCard = ({ name, remaining, time, onPress }) => {
   const bgImage = require("../../assets/background.png");
 
   return (
     <ImageBackground style={styles.backgroundImage} source={bgImage}>
+      <View style={styles.settingsView}></View>
       <View style={styles.timeCard}>
         <View style={styles.name}>
           {getIcon(name, styles.icon)}
@@ -29,6 +30,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 20,
+  },
+  settingsView: {
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "flex-end",
   },
   icon: {
     color: "#fff",

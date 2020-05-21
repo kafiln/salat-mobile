@@ -40,11 +40,11 @@ const SettingsScreen = () => {
         />
         <Text>Light</Text>
       </View>
-      <Text>Is this showing ? </Text>
-      <View>
+      <Text>City </Text>
+      <View styles={{ width: "100%" }}>
         <Picker
           selectedValue={id}
-          style={{ height: 50, width: 100 }}
+          style={{ height: 50, width: 150 }}
           onValueChange={async (_, itemIndex) => {
             await dispatch({ type: CHANGE_CITY, payload: parseInt(_) });
           }}

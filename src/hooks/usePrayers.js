@@ -5,6 +5,7 @@ import {
   getFromLocalStorageOrApi,
   getStorageKey,
 } from "../utils/localStorage";
+import { AsyncStorage } from "react-native";
 
 const byDay = (a, b) => new Date(a.day).getDate() - new Date(b.day).getDate();
 

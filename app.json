@@ -16,7 +16,12 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "xyz.kafil.salat",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "xyz.kafil.salat",
+      "versionCode": 1
     },
     "description": ""
   }
