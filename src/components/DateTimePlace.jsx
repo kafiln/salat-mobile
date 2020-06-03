@@ -1,9 +1,9 @@
+import { FontAwesome } from "@expo/vector-icons";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { FontAwesome } from "@expo/vector-icons";
 import { ApplicationContext } from "../context";
-import { DEFAULT_DATE_FORMAT } from "../settings";
 import CITIES from "../data/cities.json";
+import { DEFAULT_DATE_FORMAT } from "../settings";
 
 const DateTimePlace = () => {
   const { id, time } = ApplicationContext();
