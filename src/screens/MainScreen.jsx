@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { SafeAreaView, StyleSheet, View } from "react-native";
 import DateTimePlace from "../components/DateTimePlace";
 import PrayerList from "../components/PrayerList";
+import Spinner from "../components/Spinner";
 import TimeCard from "../components/TimeCard";
 import { ApplicationContext } from "../context";
 import { REFRESH_TIME } from "../context/types";
@@ -39,18 +40,18 @@ const MainScreen = ({ navigation }) => {
     };
   });
 
-  return (
-    prayers && (
-      <SafeAreaView style={styles.container}>
-        <View style={styles.top}>
-          <TimeCard name={next} remaining={diff} time={prayer[next]} />
-        </View>
-        <View style={styles.bottom}>
-          <DateTimePlace />
-          {prayer && <PrayerList data={prayer} next={next} />}
-        </View>
-      </SafeAreaView>
-    )
+  return prayers ? (
+    <SafeAreaView style={styles.container}>
+      <View style={styles.top}>
+        <TimeCard name={next} remaining={diff} time={prayer[next]} />
+      </View>
+      <View style={styles.bottom}>
+        <DateTimePlace />
+        {prayer && <PrayerList data={prayer} next={next} />}
+      </View>
+    </SafeAreaView>
+  ) : (
+    <Spinner />
   );
 };
 

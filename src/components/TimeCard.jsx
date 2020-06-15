@@ -1,7 +1,7 @@
 import moment from "moment";
 import React from "react";
 import { ImageBackground, StyleSheet, Text, View } from "react-native";
-import { DEFAULT_TIME_FORMAT } from "../settings";
+import { TIME_OFFSET } from "../settings";
 import { getIcon } from "./ PrayerItem";
 
 const TimeCard = ({ name, remaining, time, onPress }) => {
@@ -16,7 +16,9 @@ const TimeCard = ({ name, remaining, time, onPress }) => {
           <Text style={styles.textSecondary}>{name}</Text>
         </View>
         <Text style={styles.textPrimary}>-{remaining}</Text>
-        <Text style={styles.textSecondary}>{moment(time).format("HH:mm")}</Text>
+        <Text style={styles.textSecondary}>
+          {moment.utc(time).utcOffset(TIME_OFFSET).format("HH:mm")}
+        </Text>
       </View>
     </ImageBackground>
   );
@@ -64,7 +66,7 @@ const styles = StyleSheet.create({
     color: "#fff",
     textAlign: "center",
     fontSize: 24,
-    paddingHorizontal: 5,
+    paddingHorizontal: 20,
     textTransform: "capitalize",
   },
 });

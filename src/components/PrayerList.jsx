@@ -1,7 +1,8 @@
+import moment from "moment";
 import React from "react";
 import { StyleSheet, View } from "react-native";
+import { TIME_OFFSET } from "../settings";
 import PrayerItem from "./ PrayerItem";
-import moment from "moment";
 
 const PrayerList = ({ data, next }) => {
   const { id, day, ...prayers } = data;
@@ -10,7 +11,7 @@ const PrayerList = ({ data, next }) => {
       key={key}
       name={key}
       next={next === key}
-      time={moment.utc(prayers[key]).format("HH:mm")}
+      time={moment.utc(prayers[key]).utcOffset(TIME_OFFSET).format("HH:mm")}
     />
   ));
   return <View style={styles.container}>{list}</View>;

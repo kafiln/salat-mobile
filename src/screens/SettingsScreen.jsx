@@ -1,8 +1,8 @@
 import React from "react";
-import { StyleSheet, Text, Switch, View, Picker } from "react-native";
-import { Center } from "../components/common";
+import { Picker, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { ApplicationContext } from "../context";
-import { CHANGE_LANGUAGE, CHANGE_THEME, CHANGE_CITY } from "../context/types";
+import { CHANGE_CITY, CHANGE_LANGUAGE, CHANGE_THEME } from "../context/types";
 import CITIES from "../data/cities.json";
 
 const byLabel = (a, b) => (a.label > b.label ? 1 : b.label > a.label ? -1 : 0);
@@ -20,31 +20,12 @@ const SettingsScreen = () => {
     await dispatch({ type: CHANGE_THEME });
   };
   return (
-    <Center>
-      <Text>Settings</Text>
-      <View style={styles.toggle}>
-        <Text>Arabic</Text>
-        <Switch
-          // thumbColor={lang == "ar-ma" ? "#f5dd4b" : "#f4f3f4"}
-          onValueChange={toggleLanguage}
-          value={lang != "ar-ma"}
-        />
-        <Text>French</Text>
-      </View>
-      <View style={styles.toggle}>
-        <Text>Dark</Text>
-        <Switch
-          // thumbColor={theme == "dark" ? "#f5dd4b" : "#f4f3f4"}
-          onValueChange={toggleTheme}
-          value={theme != "dark"}
-        />
-        <Text>Light</Text>
-      </View>
+    <SafeAreaView style={styles.container}>
       <Text>City </Text>
-      <View styles={{ width: "100%" }}>
+      <View style={styles.cities}>
         <Picker
           selectedValue={id}
-          style={{ height: 50, width: 150 }}
+          style={{ height: 50, width: 200 }}
           onValueChange={async (_, itemIndex) => {
             await dispatch({ type: CHANGE_CITY, payload: parseInt(_) });
           }}
@@ -54,17 +35,26 @@ const SettingsScreen = () => {
           ))}
         </Picker>
       </View>
-    </Center>
+    </SafeAreaView>
   );
 };
 
 export default SettingsScreen;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    // justifyContent: "center",
+    alignItems: "center",
+    paddingTop: 20,
+  },
   toggle: {
     paddingVertical: 10,
-    width: "50%",
+    width: "70%",
     flexDirection: "row",
     justifyContent: "space-around",
+  },
+  cities: {
+    marginTop: 20,
   },
 });
