@@ -6,8 +6,11 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "dev": "yarn android && yarn ios"
+    "dev": "yarn android && yarn ios",
+    "predeploy": "expo build:web",
+    "deploy": "gh-pages -d web-build"
   },
+  "homepage": "https://kafiil.github.io/salat-mobile",
   "dependencies": {
     "@react-native-community/masked-view": "0.1.6",
     "@react-navigation/native": "^5.4.0",
@@ -26,7 +29,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
-    "babel-preset-expo": "~8.1.0"
+    "babel-preset-expo": "~8.1.0",
+    "gh-pages": "^3.0.0"
   },
   "private": true
 }
