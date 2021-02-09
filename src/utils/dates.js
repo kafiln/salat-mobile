@@ -1,4 +1,3 @@
-import moment from 'moment';
+import moment from "moment";
 
-export const parseTime = (time: string): string =>
-  moment.utc(time).format('HH:mm');
+export const parseTime = (time) => moment.utc(time).format("HH:mm");
