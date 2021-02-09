@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/salat-mobile/precache-manifest.1b2def62d3ad564e5a5a626cff11edce.js"
+  "/salat-mobile/precache-manifest.fc98033814db943d7c59ed577a9aa3c2.js"
 );
 
 workbox.skipWaiting();

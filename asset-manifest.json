@@ -1,11 +1,11 @@
 {
   "files": {
-    "app.js": "/salat-mobile/static/js/app.5e011727.chunk.js",
-    "app.js.map": "/salat-mobile/static/js/app.5e011727.chunk.js.map",
-    "runtime~app.js": "/salat-mobile/static/js/runtime~app.14db3b87.js",
-    "runtime~app.js.map": "/salat-mobile/static/js/runtime~app.14db3b87.js.map",
-    "static/js/2.d63d8040.chunk.js": "/salat-mobile/static/js/2.d63d8040.chunk.js",
-    "static/js/2.d63d8040.chunk.js.map": "/salat-mobile/static/js/2.d63d8040.chunk.js.map",
+    "app.js": "/salat-mobile/static/js/app.49fbc103.chunk.js",
+    "app.js.map": "/salat-mobile/static/js/app.49fbc103.chunk.js.map",
+    "runtime~app.js": "/salat-mobile/static/js/runtime~app.56066862.js",
+    "runtime~app.js.map": "/salat-mobile/static/js/runtime~app.56066862.js.map",
+    "static/js/2.3020fb41.chunk.js": "/salat-mobile/static/js/2.3020fb41.chunk.js",
+    "static/js/2.3020fb41.chunk.js.map": "/salat-mobile/static/js/2.3020fb41.chunk.js.map",
     "fonts/AntDesign.ttf": "/salat-mobile/./fonts/AntDesign.ttf",
     "fonts/Entypo.ttf": "/salat-mobile/./fonts/Entypo.ttf",
     "fonts/Feather.ttf": "/salat-mobile/./fonts/Feather.ttf",
@@ -24,11 +24,12 @@
     "index.html": "/salat-mobile/index.html",
     "manifest.json": "/salat-mobile/manifest.json",
     "serve.json": "/salat-mobile/serve.json",
-    "static/media/background.png": "/salat-mobile/static/media/background.d1c1c50c.png"
+    "static/js/2.3020fb41.chunk.js.LICENSE.txt": "/salat-mobile/static/js/2.3020fb41.chunk.js.LICENSE.txt",
+    "static/media/background.png": "/salat-mobile/static/media/background.48bf8f7c.png"
   },
   "entrypoints": [
-    "static/js/runtime~app.14db3b87.js",
-    "static/js/2.d63d8040.chunk.js",
-    "static/js/app.5e011727.chunk.js"
+    "static/js/runtime~app.56066862.js",
+    "static/js/2.3020fb41.chunk.js",
+    "static/js/app.49fbc103.chunk.js"
   ]
 }
