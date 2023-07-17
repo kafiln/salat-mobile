@@ -7,7 +7,7 @@ import CITIES from "../data/cities.json";
 
 const byLabel = (a, b) => (a.label > b.label ? 1 : b.label > a.label ? -1 : 0);
 
-const cities = CITIES.map((c) => ({ id: c.id, label: c.names["fr-fr"] })).sort(
+const cities = CITIES.map((c) => ({ id: c.id, label: c.name })).sort(
   byLabel
 );
 

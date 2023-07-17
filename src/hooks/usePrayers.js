@@ -1,3 +1,4 @@
+import moment from "moment";
 import { useEffect, useState } from "react";
 import { API_URL } from "../settings";
 import {
@@ -5,11 +6,16 @@ import {
   getFromLocalStorageOrApi,
   getStorageKey,
 } from "../utils/localStorage";
-import { AsyncStorage } from "react-native";
 
-const byDay = (a, b) => new Date(a.day).getDate() - new Date(b.day).getDate();
+const mapTimeFromApiToMoment = (data) =>
+  Object.keys(data).reduce((prev, curr) => {
+    return {
+      ...prev,
+      [curr]: moment(data[curr], "HH:mm"),
+    };
+  }, {});
 
-export default (cityId, isDayly = false) => {
+export default (cityId) => {
   const [prayers, setPrayers] = useState(null);
 
   useEffect(() => {
@@ -18,26 +24,22 @@ export default (cityId, isDayly = false) => {
       setPrayers(null);
 
       // Form the key string
-      const key = getStorageKey(cityId, isDayly);
+      const key = getStorageKey(cityId);
 
       // Form the URL
-      let URL = `${API_URL}prayer?city=${cityId}&month=${
+      let URL = `${API_URL}${cityId}/${
         new Date().getUTCMonth() + 1
-      }`;
-
-      if (isDayly) {
-        URL += `&day=${new Date().getUTCDate()}`;
-      }
+      }/${new Date().getUTCDate()}`;
 
       // Load initial values from localstorage or API
-      const initialPrayers = await getFromLocalStorageOrApi(key, URL);
-      setPrayers(initialPrayers);
+      const rawData = await getFromLocalStorageOrApi(key, URL);
+      setPrayers(mapTimeFromApiToMoment(rawData));
 
       // Clean the localStorage
       cleanLocalStorage(key);
     }
     init();
-  }, [cityId, isDayly]);
+  }, [cityId]);
 
-  return isDayly ? prayers : (prayers || []).sort(byDay);
+  return prayers;
 };

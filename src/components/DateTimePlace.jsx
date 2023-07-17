@@ -7,7 +7,7 @@ import { DEFAULT_DATE_FORMAT } from "../settings";
 
 const DateTimePlace = () => {
   const { id, time } = ApplicationContext();
-  const place = CITIES.find((e) => e.id === id).names["fr-fr"];
+  const place = CITIES.find((e) => e.id === id).name;
   return (
     <View style={styles.container}>
       <View style={styles.placeContainer}>

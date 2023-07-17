@@ -2,8 +2,8 @@
 // TODO: create an api to handle requests
 
 import axios from "axios";
-import { NEVER_REMOVE_FROM_STORAGE } from "../settings";
 import { AsyncStorage } from "react-native";
+import { NEVER_REMOVE_FROM_STORAGE } from "../settings";
 
 /**
 *Fetch a value either from asyncStorage identified by name,
@@ -16,7 +16,7 @@ import { AsyncStorage } from "react-native";
  */
 export const getFromLocalStorageOrApi = async (name, url) => {
   if (!(await AsyncStorage.getItem(name))) {
-    const value = (await axios.get(url)).data;
+    const [value] = (await axios.get(url)).data;
     await AsyncStorage.setItem(name, JSON.stringify(value));
     return value;
   }
@@ -35,27 +35,19 @@ export const getFromLocalStorageOrApi = async (name, url) => {
  * Create a key to use with the localStorage
  * @param {number} cityId the id of the city
  */
-export const cleanLocalStorage = async (cityId) => {
+export const cleanLocalStorage = async (key) => {
   const rest = [...NEVER_REMOVE_FROM_STORAGE];
-  const dailyKey = getStorageKey(cityId, true).split("_").slice(0, 3).join("_");
-  const monthlyKey = getStorageKey(cityId, false)
-    .split("_")
-    .slice(0, 2)
-    .join("_");
 
   (await AsyncStorage.getAllKeys())
-    .filter((e) => !e.startsWith(dailyKey))
-    .filter((e) => !e.startsWith(monthlyKey))
+    .filter((e) => !e.startsWith(key))
     .filter((e) => !rest.includes(e))
     .forEach(async (e) => await AsyncStorage.removeItem(e));
 };
 
-export const getStorageKey = (cityId, isDaily) => {
+export const getStorageKey = (cityId) => {
   const date = new Date();
   const month = date.getMonth() + 1;
   const day = date.getDate();
 
-  return isDaily
-    ? `daily_${month}_${day}_${cityId}`
-    : `monthly_${month}_${cityId}`;
+  return `${cityId}/${month}/${day}`;
 };

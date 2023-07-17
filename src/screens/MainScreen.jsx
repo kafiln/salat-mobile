@@ -16,8 +16,8 @@ const MainScreen = ({ navigation }) => {
   let [diff, setDifference] = useState("");
   let [next, setNextOne] = useState("");
 
-  const prayers = usePrayer(id, true);
-  let prayer = (prayers || [])[0];
+  const prayers = usePrayer(id);
+  let prayer = prayers
 
   useEffect(() => {
     if (prayer) {
