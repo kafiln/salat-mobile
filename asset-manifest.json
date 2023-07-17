@@ -1,35 +1,23 @@
 {
   "files": {
-    "app.js": "/salat-mobile/static/js/app.49fbc103.chunk.js",
-    "app.js.map": "/salat-mobile/static/js/app.49fbc103.chunk.js.map",
-    "runtime~app.js": "/salat-mobile/static/js/runtime~app.56066862.js",
-    "runtime~app.js.map": "/salat-mobile/static/js/runtime~app.56066862.js.map",
-    "static/js/2.3020fb41.chunk.js": "/salat-mobile/static/js/2.3020fb41.chunk.js",
-    "static/js/2.3020fb41.chunk.js.map": "/salat-mobile/static/js/2.3020fb41.chunk.js.map",
-    "fonts/AntDesign.ttf": "/salat-mobile/./fonts/AntDesign.ttf",
-    "fonts/Entypo.ttf": "/salat-mobile/./fonts/Entypo.ttf",
-    "fonts/Feather.ttf": "/salat-mobile/./fonts/Feather.ttf",
-    "fonts/FontAwesome.ttf": "/salat-mobile/./fonts/FontAwesome.ttf",
-    "fonts/FontAwesome5_Brands.ttf": "/salat-mobile/./fonts/FontAwesome5_Brands.ttf",
-    "fonts/FontAwesome5_Solid.ttf": "/salat-mobile/./fonts/FontAwesome5_Solid.ttf",
-    "fonts/Fontisto.ttf": "/salat-mobile/./fonts/Fontisto.ttf",
-    "fonts/Foundation.ttf": "/salat-mobile/./fonts/Foundation.ttf",
-    "fonts/Ionicons.ttf": "/salat-mobile/./fonts/Ionicons.ttf",
-    "fonts/MaterialCommunityIcons.ttf": "/salat-mobile/./fonts/MaterialCommunityIcons.ttf",
-    "fonts/MaterialIcons.ttf": "/salat-mobile/./fonts/MaterialIcons.ttf",
-    "fonts/SimpleLineIcons.ttf": "/salat-mobile/./fonts/SimpleLineIcons.ttf",
-    "favicon-16.png": "/salat-mobile/favicon-16.png",
-    "favicon-32.png": "/salat-mobile/favicon-32.png",
+    "main.js": "/salat-mobile/static/js/main.3d9e1530.js",
+    "static/js/541.0c075f86.js": "/salat-mobile/static/js/541.0c075f86.js",
+    "static/media/MaterialCommunityIcons.ttf": "/salat-mobile/static/media/MaterialCommunityIcons.61cff764bdd94ce69582.ttf",
+    "static/media/FontAwesome.ttf": "/salat-mobile/static/media/FontAwesome.1e59d2330b4c6deb84b3.ttf",
+    "static/media/background.png": "/salat-mobile/static/media/background.48bf8f7c528c1649771f.png",
+    "static/media/Feather.ttf": "/salat-mobile/static/media/Feather.353d301faa95db9bb7a3.ttf",
+    "static/media/Octicons.ttf": "/salat-mobile/static/media/Octicons.31d353daf64840110b3d.ttf",
     "favicon.ico": "/salat-mobile/favicon.ico",
     "index.html": "/salat-mobile/index.html",
+    "favicon-32.png": "/salat-mobile/favicon-32.png",
+    "favicon-16.png": "/salat-mobile/favicon-16.png",
     "manifest.json": "/salat-mobile/manifest.json",
     "serve.json": "/salat-mobile/serve.json",
-    "static/js/2.3020fb41.chunk.js.LICENSE.txt": "/salat-mobile/static/js/2.3020fb41.chunk.js.LICENSE.txt",
-    "static/media/background.png": "/salat-mobile/static/media/background.48bf8f7c.png"
+    "main.3d9e1530.js.map": "/salat-mobile/static/js/main.3d9e1530.js.map",
+    "541.0c075f86.js.map": "/salat-mobile/static/js/541.0c075f86.js.map"
   },
   "entrypoints": [
-    "static/js/runtime~app.56066862.js",
-    "static/js/2.3020fb41.chunk.js",
-    "static/js/app.49fbc103.chunk.js"
+    "static/js/541.0c075f86.js",
+    "static/js/main.3d9e1530.js"
   ]
 }
