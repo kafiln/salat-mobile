@@ -8,7 +8,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 //TODO: Refactor this, is there a better way ?
 export const getIcon = (name, styles) => {
-  switch (name) {
+  switch (name.toLowerCase()) {
     case "chorouq":
       return <Feather name="sunrise" style={styles} size={24} />;
     case "fajr":
