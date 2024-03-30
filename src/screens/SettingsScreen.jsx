@@ -1,5 +1,6 @@
+import { Picker } from '@react-native-picker/picker';
 import React from "react";
-import { Picker, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ApplicationContext } from "../context";
 import { CHANGE_CITY, CHANGE_LANGUAGE, CHANGE_THEME } from "../context/types";

@@ -1,13 +1,12 @@
-import { useState, useEffect } from "react";
-import { AsyncStorage } from "react-native";
 import moment from "moment";
+import { useEffect, useState } from "react";
 import { TIME_OFFSET } from "../settings";
 
-const initFromStorage = async () => ({
-  id: parseInt((await AsyncStorage.getItem("id")) || "80"),
-  lang: (await AsyncStorage.getItem("lang")) || "ar-ma",
-  theme: (await AsyncStorage.getItem("theme")) || "light",
-  periodicity: (await AsyncStorage.getItem("periodicity")) || "daily",
+const init = () => ({
+  id: parseInt("80"),
+  lang: "ar-ma",
+  theme: "light",
+  periodicity: "daily",
 });
 
 const useAsyncReducer = (reducer, initialState = null) => {
@@ -15,7 +14,7 @@ const useAsyncReducer = (reducer, initialState = null) => {
 
   useEffect(() => {
     (async () => {
-      const defaults = await initFromStorage();
+      const defaults = init();
       setState({
         ...state,
         ...defaults,

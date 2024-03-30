@@ -19,6 +19,7 @@ const MainScreen = ({ navigation }) => {
   const prayers = usePrayer(id);
   let prayer = prayers
 
+
   useEffect(() => {
     if (prayer) {
       const nextOnes = Object.keys(prayer).filter((t) =>

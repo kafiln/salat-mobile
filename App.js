@@ -1,6 +1,7 @@
 import { Octicons } from "@expo/vector-icons";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 import React from "react";
 import Spinner from "./src/components/Spinner";
 import { AppContext, initialState } from "./src/context";
@@ -9,7 +10,7 @@ import useAsyncReducer from "./src/hooks/useAsyncReducer";
 import MainScreen from "./src/screens/MainScreen";
 import SettingsScreen from "./src/screens/SettingsScreen";
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   const [state, dispatch] = useAsyncReducer(reducer, initialState);
@@ -33,7 +34,7 @@ const App = () => {
                 headerRight: () => (
                   <Octicons
                     onPress={() => navigation.navigate("Settings")}
-                    name="settings"
+                    name="gear"
                     size={24}
                     color="#000"
                   />
