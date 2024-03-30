@@ -2,7 +2,7 @@ import moment from "moment";
 import React from "react";
 import { ImageBackground, StyleSheet, Text, View } from "react-native";
 import { TIME_OFFSET } from "../settings";
-import { getIcon } from "./ PrayerItem";
+import { getIcon, prayersInArabic } from "./ PrayerItem";
 
 const TimeCard = ({ name, remaining, time, onPress }) => {
   const bgImage = require("../../assets/background.png");
@@ -12,8 +12,8 @@ const TimeCard = ({ name, remaining, time, onPress }) => {
       <View style={styles.settingsView}></View>
       <View style={styles.timeCard}>
         <View style={styles.name}>
+          <Text style={styles.textSecondary}>{prayersInArabic[name.toLowerCase()]}</Text>
           {getIcon(name, styles.icon)}
-          <Text style={styles.textSecondary}>{name}</Text>
         </View>
         <Text style={styles.textPrimary}>-{remaining}</Text>
         <Text style={styles.textSecondary}>

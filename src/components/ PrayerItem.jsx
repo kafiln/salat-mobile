@@ -34,13 +34,24 @@ export const getIcon = (name, styles) => {
   }
 };
 
+export const prayersInArabic = {
+  fajr: "الفجر",
+  chorouq: 'الشروق',
+  dhuhr: "الظهر",
+  asr: "العصر",
+  maghrib: "المغرب",
+  ishae: "العشاء",
+
+}
+
 const PrayerItem = ({ name, time, next }) => {
   const styles = StyleSheet.create({
     container: {
-      width: "100%",
-      flexDirection: "row",
+      flexDirection: "row-reverse",
       justifyContent: "space-between",
       padding: 10,
+      alignItems: "center",
+      marginHorizontal:40
     },
     next: {
       backgroundColor: "#fff",
@@ -53,7 +64,7 @@ const PrayerItem = ({ name, time, next }) => {
       textTransform: "capitalize",
     },
     nameContainer: {
-      flexDirection: "row",
+      flexDirection: "row-reverse",
       alignItems: "center",
       justifyContent: "space-between",
     },
@@ -72,7 +83,7 @@ const PrayerItem = ({ name, time, next }) => {
     <View style={[styles.container, next && styles.next]}>
       <View style={styles.nameContainer}>
         {getIcon(name, styles.icon)}
-        <Text style={styles.name}>{name}</Text>
+        <Text style={styles.name}>{prayersInArabic[name.toLowerCase()]}</Text>
       </View>
       <Text style={styles.time}>{time}</Text>
     </View>

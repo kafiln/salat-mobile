@@ -47,7 +47,7 @@ const MainScreen = ({ navigation }) => {
         <TimeCard name={next} remaining={diff} time={prayer[next]} />
       </View>
       <View style={styles.bottom}>
-        <DateTimePlace />
+        <DateTimePlace navigation={navigation} />
         {prayer && <PrayerList data={prayer} next={next} />}
       </View>
     </SafeAreaView>

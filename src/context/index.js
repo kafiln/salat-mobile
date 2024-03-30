@@ -1,7 +1,10 @@
 import moment from "moment";
+import "moment/locale/ar-ma";
 import React, { useContext } from "react";
 import cities from "../data/cities.json";
 import { TIME_OFFSET } from "../settings";
+
+moment.locale("ar-ma");
 
 export const initialState = {
   cities,

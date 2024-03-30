@@ -43,7 +43,11 @@ const App = () => {
               name="Home"
               component={MainScreen}
             />
-            <Stack.Screen name="Settings" component={SettingsScreen} />
+            <Stack.Screen
+              name="Settings"
+              component={SettingsScreen}
+              options={{ title: "" }}
+            />
           </Stack.Navigator>
         ) : (
           <Spinner />

@@ -3,10 +3,11 @@ import { useEffect, useState } from "react";
 import { TIME_OFFSET } from "../settings";
 
 const init = () => ({
-  id: parseInt("80"),
+  id: 58,
   lang: "ar-ma",
   theme: "light",
   periodicity: "daily",
+  time: moment.utc().utcOffset(TIME_OFFSET),
 });
 
 const useAsyncReducer = (reducer, initialState = null) => {
@@ -18,7 +19,6 @@ const useAsyncReducer = (reducer, initialState = null) => {
       setState({
         ...state,
         ...defaults,
-        time: moment.utc().utcOffset(TIME_OFFSET),
       });
     })();
   }, []);

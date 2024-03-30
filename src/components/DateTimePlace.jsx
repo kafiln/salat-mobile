@@ -5,16 +5,16 @@ import { ApplicationContext } from "../context";
 import CITIES from "../data/cities.json";
 import { DEFAULT_DATE_FORMAT } from "../settings";
 
-const DateTimePlace = () => {
+const DateTimePlace = ({ navigation }) => {
   const { id, time } = ApplicationContext();
   const place = CITIES.find((e) => e.id === id).name;
   return (
     <View style={styles.container}>
       <View style={styles.placeContainer}>
-        <FontAwesome name="map-marker" size={24} />
         <Text style={styles.place}>{place}</Text>
+        <FontAwesome name="map-marker" size={24} onPress={() => {navigation.navigate("Settings") }} />
       </View>
-      <Text style={styles.time}>{time.format(DEFAULT_DATE_FORMAT)}</Text>
+      <Text style={styles.time}>{time.format(DEFAULT_DATE_FORMAT,)}</Text>
     </View>
   );
 };
@@ -26,11 +26,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    paddingVertical: 10,
+    gap: 10,
+    padding:10,
   },
   place: {
     marginLeft: 5,
-    fontSize: 18,
+    fontSize: 24,
     fontWeight: "bold",
     color: "#212B46",
   },

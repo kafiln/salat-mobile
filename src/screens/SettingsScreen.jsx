@@ -12,7 +12,7 @@ const cities = CITIES.map((c) => ({ id: c.id, label: c.name })).sort(
   byLabel
 );
 
-const SettingsScreen = () => {
+const SettingsScreen = ({navigation}) => {
   const { id, lang, theme, dispatch } = ApplicationContext();
   const toggleLanguage = async () => {
     await dispatch({ type: CHANGE_LANGUAGE });
@@ -22,13 +22,14 @@ const SettingsScreen = () => {
   };
   return (
     <SafeAreaView style={styles.container}>
-      <Text>City </Text>
+      <Text>اختر المدينة </Text>
       <View style={styles.cities}>
         <Picker
           selectedValue={id}
           style={{ height: 50, width: 200 }}
           onValueChange={async (_, itemIndex) => {
             await dispatch({ type: CHANGE_CITY, payload: parseInt(_) });
+            navigation.goBack();
           }}
         >
           {cities.map((city) => (
