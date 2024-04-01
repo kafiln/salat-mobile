@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "الصلاة في المغرب",
-    "slug": "Morocco-Prayer-Times",
+    "slug": "salat",
     "platforms": [
       "ios",
       "android",
@@ -29,6 +29,12 @@
       "package": "xyz.kafil.salat",
       "versionCode": 1
     },
-    "description": ""
+    "description": "",
+    "extra": {
+      "eas": {
+        "projectId": "fe9b5887-8b00-49ba-9772-01be0166b286"
+      }
+    },
+    "owner": "kafil"
   }
 }
