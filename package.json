@@ -31,7 +31,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "babel-preset-expo": "^10.0.1",
-    "gh-pages": "^3.0.0"
+    "gh-pages": "^5.0.0"
   },
   "private": true
 }
